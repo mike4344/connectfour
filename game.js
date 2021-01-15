@@ -30,5 +30,8 @@ export default class Game {
             this.current--
         }
     }
+    isColumnFull(columnIndex){
+        this.columns[columnIndex].isFull()
+    }
 }
  //module.export = Game

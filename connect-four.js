@@ -21,6 +21,9 @@ function updateUI () {
             clickTarget.classList.remove("black")
 
         }
+        for(let i = 0; i < 7; i++) {
+            let checkColumn = document.getElementById(`column-${i}`)
+        }
         for (let rowIndex = 0; rowIndex <= 5; rowIndex++){
             for (let colIndex = 0; colIndex <= 6; colIndex++){
                 let square = document.querySelector(`#square-${rowIndex}-${colIndex}`)
