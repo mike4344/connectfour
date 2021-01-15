@@ -1,6 +1,6 @@
-class Column {
+export default class Column {
     constructor(){
-        this.tokens = [null, null, null, null, null, null];
+        this.tokens = [null, null, null, null, null, null]; //columns
 
     }
     add(playerNum){
@@ -11,8 +11,8 @@ class Column {
            }
         }
     }
-    getTokenAt(rowIndex){
-        return this.tokens[rowIndex]
+    getTokenAt(rowIndex){ //
+        return this.tokens[rowIndex] // this.tokens is our null array.
     }
 }
-module.exports = Column
+//module.export = Column

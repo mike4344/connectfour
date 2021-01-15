@@ -1,4 +1,6 @@
-class Game {
+import Column from './column.js'
+
+export default class Game {
     constructor(name1, name2) {
         this.name1 = name1;
         this.name2 = name2;
@@ -13,6 +15,10 @@ class Game {
             new Column()
         ];
     }
+    getTokenAt(rowIndex, colIndex){
+        return this.columns[colIndex].getTokenAt(rowIndex)
+
+    }
     getName(){
         return `player 1 ${this.name1} vs. player 2 ${this.name2}`
     }
@@ -25,3 +31,4 @@ class Game {
         }
     }
 }
+ //module.export = Game
