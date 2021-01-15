@@ -23,7 +23,7 @@ function updateUI () {
         }
         for(let i = 0; i < 7; i++) {
             let checkColumn = document.getElementById(`column-${i}`)
-            if(game.isColumnFull(i)){
+            if(game.isColumnFull(i)){ // checking T or F from game.js iscolumnfull
                 checkColumn.classList.add("full")
             } else {
                 checkColumn.classList.remove("full")
