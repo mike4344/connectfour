@@ -23,6 +23,11 @@ function updateUI () {
         }
         for(let i = 0; i < 7; i++) {
             let checkColumn = document.getElementById(`column-${i}`)
+            if(game.isColumnFull(i)){
+                checkColumn.classList.add("full")
+            } else {
+                checkColumn.classList.remove("full")
+            }
         }
         for (let rowIndex = 0; rowIndex <= 5; rowIndex++){
             for (let colIndex = 0; colIndex <= 6; colIndex++){
