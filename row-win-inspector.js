@@ -6,9 +6,13 @@ export default class RowWinInspector{
         this.column4 = column4
     }
     inspect(){
+       // console.log(this.column1.tokens)
         for (let i = 0; i < 6; i++){
-            if(this.column1.token[i] === this.column2.token[i] === this.column3.token[i] === this.column4.token[i] && this.column1.token[i] !== null){
-                return this.column1.token[i]; // returning the number either 1 or 2
+            if(this.column1.tokens[i] === this.column2.tokens[i] &&
+               this.column3.tokens[i] === this.column4.tokens[i] &&
+               this.column3.tokens[i] === this.column2.tokens[i] &&
+               this.column1.tokens[i] !== null){
+                return this.column1.tokens[i]; // returning the number either 1 or 2
             }
         }
         return 0; // if we go through all the arrays (rows)

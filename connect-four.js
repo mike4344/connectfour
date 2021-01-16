@@ -1,10 +1,17 @@
 
-
+import Deserializer from './deserializer.js'
+import Serializer from './serial.js'
 import Game from './game.js';
 
 let game = undefined;
-
+const json = window.localStorage.getItem('game')
+if (json){
+    let deserialized = new Deserializer(json)
+    game = deserialized.deserialize()
+    updateUI()
+}
 function updateUI () {
+    console.log(game)
     let boardHolder = document.getElementById('board-holder')
     if(game === undefined){ // does not exist
         boardHolder.classList.add('is-invisible')
@@ -83,6 +90,10 @@ window.addEventListener("DOMContentLoaded", event => {
         const columnIndex = Number.parseInt(targetId[targetId.length-1]) // changing "0" into a number 0.
 
         game.playInColumn(columnIndex) // updates the current players turn ++ --
+        let serializer = new Serializer(game)
+        let json = serializer.serialize()
+        window.localStorage.setItem('game', json)
         updateUI()
+
     })
 })

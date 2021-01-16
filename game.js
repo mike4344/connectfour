@@ -1,7 +1,7 @@
 import Column from './column.js'
 import ColumnWinInspector from './columnWinInspector.js'
 import RowWinInspector from './row-win-inspector.js'
-
+import DiagonalWinInspector from './diagonalWinInspector.js'
 export default class Game {
     constructor(name1, name2) {
         this.name1 = name1;
@@ -42,6 +42,8 @@ export default class Game {
         }
         this.checkForTie()
         this.checkForColumnWin()
+        this.checkForRowWin()
+        this.checkForDiagonalWin()
     }
     isColumnFull(columnIndex){
         if(this.winnerNumber === 1 || this.winnerNumber === 2){
@@ -74,10 +76,27 @@ export default class Game {
         }
     checkForRowWin(){
         for (let i = 0; i < 4; i++){
+            if(this.winnerNumber !== 0){
+                 return
+            }
             let rowWinCheck = new RowWinInspector(this.columns[i], this.columns[i + 1], this.columns[i+2], this.columns[i +3])
+            let rowWinner = rowWinCheck.inspect()
+
+            this.winnerNumber = rowWinner
         }
     }
+    checkForDiagonalWin(){
 
+    for (let i = 0; i < 4; i++){
+        if(this.winnerNumber !== 0){
+             return
+        }
+        let diagonalWinCheck = new DiagonalWinInspector(this.columns[i], this.columns[i + 1], this.columns[i+2], this.columns[i +3])
+        let diagonalWinner = diagonalWinCheck.inspect()
+
+        this.winnerNumber = diagonalWinner
+    }
+    }
     }
 
  //module.export = Game
